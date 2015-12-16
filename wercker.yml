@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: copy build to deployable
-        code: cp -a ./. $WERCKER_OUTPUT_DIR
+        code: cp -a ./. $WERCKER_OUTPUT_DIR && rm -R $WERCKER_OUTPUT_DIR/.git
 
 deploy:
   steps:
