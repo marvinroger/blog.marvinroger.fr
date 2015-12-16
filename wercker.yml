@@ -1,0 +1,31 @@
+box: node:4
+build:
+  steps:
+    - script:
+        name: ?
+        code: echo okay
+
+deploy:
+  steps:
+    - script:
+        name: Initialize new repository
+        code: |
+          git init
+          git config --global user.name "wercker"
+          git config --global user.email "pleasemailus@wercker.com"
+          git remote add dokku dokku@$SERVER_HOSTNAME:$PROJECT_NAME
+    - script:
+        name: Add everything to the repository
+        code: |
+          git add .
+          git commit -m "Result of deploy $WERCKER_GIT_COMMIT"
+    - add-to-known_hosts:
+        hostname: $SERVER_HOSTNAME
+        fingerprint: $SERVER_FINGERPRINT
+    - add-ssh-key:
+        keyname: SSH
+    - script:
+        name: Push to dokku
+        code: |
+          git push -f dokku master
+

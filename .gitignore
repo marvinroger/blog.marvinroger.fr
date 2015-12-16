@@ -1,0 +1,7 @@
+/node_modules/
+/content/data/*
+!/content/data/README.md
+/content/images/*
+!/content/images/README.md
+
+/npm-debug.log
