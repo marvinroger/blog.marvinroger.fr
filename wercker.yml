@@ -2,8 +2,8 @@ box: node:4
 build:
   steps:
     - script:
-        name: build
-        code: echo "OK"
+        name: copy build to deployable
+        code: cp -a ./. $WERCKER_OUTPUT_DIR
 
 deploy:
   steps:
