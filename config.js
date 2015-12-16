@@ -11,8 +11,17 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://blog.marvinroger.fr',
-        mail: {},
+        url: 'https://blog.marvinroger.fr',
+        mail: {
+          transport: 'SMTP',
+          options: {
+              service: 'Mailgun',
+              auth: {
+                  user: 'postmaster@mailgun.marvinroger.fr', // mailgun username
+                  pass: process.env.MAILGUN_PASSWORD // mailgun password
+              }
+          }
+        },
         database: {
             client: 'sqlite3',
             connection: {
