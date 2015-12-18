@@ -4,3 +4,12 @@
 
 Sources of my very own personal blog, not to be selfish.
 It is automatically built and deployed to a dokku server.
+
+## Usage (or note to self)
+
+In wercker, set variables `SERVER_HOSTNAME`, `PROJECT_NAME`, `SERVER_FINGERPRINT` and `SSH` at deploy time.
+
+In dokku, set `MAILGUN_PASSWORD` and add following docker options:
+
+* `-v /appdata/blog/data:/app/content/data`
+* `-v /appdata/blog/images:/app/content/images`
