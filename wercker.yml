@@ -15,7 +15,7 @@ build:
         code: cp config.js $WERCKER_OUTPUT_DIR
     - script:
         name: Copy theme
-        code: cp content/themes/bleak $WERCKER_OUTPUT_DIR/content/themes
+        code: cp -r content/themes/bleak $WERCKER_OUTPUT_DIR/content/themes
 
 deploy:
   steps:
