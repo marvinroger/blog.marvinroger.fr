@@ -3,7 +3,7 @@ build:
   steps:
     - script:
         name: Install unzip
-        code: apt-get install -y unzip
+        code: apt-get update && apt-get install -y unzip
     - script:
         name: Download Ghost
         code: wget -O ghost.zip https://github.com/TryGhost/Ghost/releases/download/0.7.3/Ghost-0.7.3.zip
