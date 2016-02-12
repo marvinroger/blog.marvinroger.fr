@@ -6,7 +6,7 @@ build:
         code: apt-get update && apt-get install -y unzip
     - script:
         name: Download Ghost
-        code: wget -O ghost.zip https://github.com/TryGhost/Ghost/releases/download/0.7.3/Ghost-0.7.3.zip
+        code: wget -O ghost.zip https://github.com/TryGhost/Ghost/releases/download/0.7.6/Ghost-0.7.6.zip
     - script:
         name: Decompress Ghost
         code: unzip ghost.zip -d $WERCKER_OUTPUT_DIR
@@ -38,5 +38,4 @@ deploy:
         keyname: SSH
     - script:
         name: Push to dokku
-        code: |
-          git push -f dokku master
+        code: git push -f dokku master
