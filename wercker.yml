@@ -14,8 +14,11 @@ build:
         name: Copy config
         code: cp config.js $WERCKER_OUTPUT_DIR
     - script:
-        name: Copy theme
-        code: cp -r content/themes/bleak $WERCKER_OUTPUT_DIR/content/themes
+        name: Download Bleak theme
+        code: |
+          mkdir -p $WERCKER_OUTPUT_DIR/content/themes
+          git clone https://github.com/zutrinken/bleak.git $WERCKER_OUTPUT_DIR/content/themes/bleak
+          rm -rf $WERCKER_OUTPUT_DIR/content/themes/bleak/.git
 
 deploy:
   steps:
