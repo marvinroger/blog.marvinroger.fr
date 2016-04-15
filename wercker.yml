@@ -6,7 +6,7 @@ build:
         code: apt-get update && apt-get install -y unzip
     - script:
         name: Download Ghost
-        code: wget -O ghost.zip https://github.com/TryGhost/Ghost/releases/download/0.7.6/Ghost-0.7.6.zip
+        code: wget -O ghost.zip https://github.com/TryGhost/Ghost/releases/download/0.7.9/Ghost-0.7.9.zip
     - script:
         name: Decompress Ghost
         code: unzip ghost.zip -d $WERCKER_OUTPUT_DIR
